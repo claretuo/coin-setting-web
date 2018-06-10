@@ -45,7 +45,7 @@ export default function clientMiddleware(req) {
         if (errors && errors.length) {
           throw new Error(errors[0].message);
         } else {
-          next({...rest, data: { ...data }, type: SUCCESS});
+          next({...rest, data: { ...data.result }, type: SUCCESS});
         }
       }).catch(err => {
         next({...rest, error: err, type: FAILURE});
